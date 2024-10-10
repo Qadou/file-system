@@ -29,3 +29,13 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+use App\Http\Controllers\WordController;
+
+Route::get('/modify-word', function () {
+    return view('modify_word');
+})->name('modify.word.form');
+
+Route::post('/modify-word', [WordController::class, 'modifyWord'])->name('modify.word');
+
